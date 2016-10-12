@@ -15,6 +15,9 @@ RUN (cd /tmp && \
 	cd netdata && \
 	./netdata-installer.sh )
 
+RUN dpkg -P zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config && \
+	apt-get -y autoremove
+
 # cleanup
 RUN apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
