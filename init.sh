@@ -2,7 +2,6 @@
 
 # Set /config/etc
 
-
 if [[ ! -d "/config/etc" && -d "/etc/netdata" ]]; then 
 	mv /etc/netdata /config/etc/
 fi
@@ -21,6 +20,17 @@ fi
 if [ ! -h "/var/log/netdata" ]; then
 	rm -rf /var/log/netdata
 	ln -s /config/log /var/log/netdata
+fi
+
+# Set /config/lib
+
+if [[ ! -d "/config/lib" && -d "/var/lib/netdata" ]]; then
+    mv /var/lib/netdata /config/lib
+fi
+
+if [ ! -h "/var/lib/netdata" ]; then
+    rm -rf /var/lib/netdata
+    ln -s /config/lib /var/lib/netdata
 fi
 
 # Set /config/cache
