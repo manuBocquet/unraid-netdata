@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER manu <manu.bocquet@gmail.com>
 
-ENV APTLIST="netdata" 
+ENV APTLIST="netdata jq" 
 
 # install main packages
 RUN apt-get update -q && \
