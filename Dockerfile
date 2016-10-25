@@ -3,7 +3,7 @@ MAINTAINER manu <manu.bocquet@gmail.com>
 
 # install main packages
 RUN apt-get update -q && \
-apt-get install curl libterm-ui-perl git make jq -qy
+apt-get install curl libterm-ui-perl git make jq netcat-openbsd -qy
 
 ENV PG_VERSION 1.1.0
 # install netdata requirement
@@ -14,7 +14,7 @@ RUN (cd /tmp && \
 	cd netdata && \
 	./netdata-installer.sh )
 
-RUN dpkg -P zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config && \
+RUN dpkg -P zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf netcat autogen automake pkg-config && \
 	apt-get -y autoremove
 
 # cleanup
